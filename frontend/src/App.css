@@ -1,4 +1,4 @@
-.register{
+.register ,.add-product{
   margin-left: 30%;
 }
 .login{
@@ -46,7 +46,7 @@
 
 }
 
-.signup-btn{
+.signup-btn,.login-btn,.add-btn{
   margin: 25px;
   padding: 10px;
   width: 150px;
@@ -61,6 +61,17 @@
   border-radius: 50%;
   margin-top: 18px;
   margin-left: 20px;
+
+}
+
+.invalid{
+  font-size: small;
+  color: red;
+  margin-top: -25px;
+  margin-left: 25px;
+  display: block;
+  
+  
 
 }
 
