@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import { BrowserRouter ,Route,Routes} from 'react-router-dom';
 import PrivateComponent from './components/PrivateComponent';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Route>
 
         <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/login' element={<Login/>}/>
 
       </Routes>
       

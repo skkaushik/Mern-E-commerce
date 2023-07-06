@@ -1,3 +1,12 @@
+.register{
+  margin-left: 30%;
+}
+.login{
+  margin-left: 30%;
+  margin-top: 100px;
+}
+
+
 .nav-ul li{
   display: inline-block;
   padding: 20px;
@@ -14,6 +23,9 @@
   padding: 5px;
   margin: 0;
   background-color: #61dafb;
+}
+.right-ul{
+  text-align: right;
 }
 
 .footer{
@@ -41,6 +53,15 @@
   background-color: skyblue;
   border: 1px solid black;
   cursor: pointer;
+}
+
+.logo{
+  width: 45px;
+  float: left;
+  border-radius: 50%;
+  margin-top: 18px;
+  margin-left: 20px;
+
 }
 
 @media (prefers-reduced-motion: no-preference) {

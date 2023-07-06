@@ -35,7 +35,7 @@ function SignUp() {
     }).catch(err=>console.log(err))
   }
   return (
-    <div>
+    <div className='register'>
         <h1>Register</h1>
         
         <input type='text' className='input-box'value={name} onChange={(e)=>{setName(e.target.value)}} placeholder='Name'/>

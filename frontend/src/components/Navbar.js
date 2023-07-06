@@ -17,15 +17,25 @@ function Navbar() {
   
   return (
     <div>
-        <ul className='nav-ul'>
+      <img src='https://w7.pngwing.com/pngs/621/196/png-transparent-e-commerce-logo-logo-e-commerce-electronic-business-ecommerce-angle-text-service.png'
+      alt='Error'
+      className='logo'
+
+      />
+      {auth? <ul className='nav-ul'>
             <li><Link to="/">Product</Link></li>
             <li><Link to="/add">Add Product</Link></li>
             <li><Link to="/update">Update Product</Link></li>           
            <li><Link to="/profile">Profile</Link></li>
-           <li>{auth?<li> <Link to="/signup" onClick={logout}>Logout</Link></li>:<Link to="/signup">SignUp</Link>}</li>
-                
-            
-        </ul>
+           
+           <li> <Link to="/signup" onClick={logout}>Logout ({JSON.parse(auth).name})</Link></li>
+           </ul>
+           :
+           <ul className='nav-ul right-ul'>
+            <li><Link to="/signup">SignUp</Link></li>
+            <li><Link to="/login">Login</Link></li>
+           </ul>
+}
     </div>
   )
 }
