@@ -1,47 +1,68 @@
-import React from 'react';
-// import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom'
 
-function UpdateProduct() {
-    const[name,setName]=React.useState('');
-    const[price,setPrice]=React.useState('');
-    const[category,setCategory]=React.useState('');
-    const[company,setCompany]=React.useState('');
-    // const [err,setErr]=React.useState(false);
+const UpdateProduct = () => {
+    const [name, setName] = React.useState('');
+    const [price, setPrice] = React.useState('');
+    const [category, setCategory] = React.useState('');
+    const [company, setCompany] = React.useState('');
+    const params = useParams();
+    const navigate = useNavigate();
 
-    const updateProduct=async()=>{
-      console.log("update is done")
-      console.log(name,price,category,company)
+    useEffect(() => {
+        getProductDetails();
+    }, [])
 
-         
+    const getProductDetails = async () => {
+        console.warn(params)
+        let result = await fetch(`http://localhost:5000/product/${params.id}`);
+        result = await result.json();
+        setName(result.name);
+        setPrice(result.price);
+        setCategory(result.category);
+        setCompany(result.company)
+    }
+
+    const updateProduct = async () => {
+        console.warn(name, price, category, company)
+        let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+            method: 'Put',
+            body: JSON.stringify({ name, price, category, company }),
+            headers: {
+                'Content-Type': 'Application/json'
+            }
+        });
+        result = await result.json();
+        console.log(result);
+        if (result) {
+            navigate('/')
+        }
 
     }
-  return (
-    <div className='update-product'>
-      
-        <h1>Update Product</h1>
-        <input type='text' className='input-box' placeholder='Product Name'
-        value={name} onChange={(e)=>{setName(e.target.value)}}
-        />
-       {/* {err && !name && <span className='invalid'>this field is required!</span>} */}
 
-        <input type='text' className='input-box' placeholder='Product Price'
-        value={price} onChange={(e)=>{setPrice(e.target.value)}}
-        />
-        {/* {err && !price && <span className='invalid'>this field is required! </span>} */}
+    return (
+        <div className='product'>
+            <h1>Update Product</h1>
+            <input type="text" placeholder='Enter product name' className='inputBox'
+                value={name} onChange={(e) => { setName(e.target.value) }}
+            />
 
-        <input type='text'className='input-box'  placeholder='Product Category '
-        value={category} onChange={(e)=>{setCategory(e.target.value)}}
-        />
-        {/* {err && !category && <span className='invalid'>this field is required!</span>} */}
+            <input type="text" placeholder='Enter product price' className='inputBox'
+                value={price} onChange={(e) => { setPrice(e.target.value) }}
+            />
 
-        <input type='text'className='input-box'  placeholder='Comapny Name'
-        value={company} onChange={(e)=>{setCompany(e.target.value)}}
-        />
-        {/* {err && !company && <span className='invalid'>this field is required!</span>} */}
+            <input type="text" placeholder='Enter product category' className='inputBox'
+                value={category} onChange={(e) => { setCategory(e.target.value) }}
+            />
 
-        <button className='up-btn' onClick={updateProduct}>Update</button>
-    </div>
-  )
+            <input type="text" placeholder='Enter product company' className='inputBox'
+                value={company} onChange={(e) => { setCompany(e.target.value) }}
+            />
+
+
+            <button onClick={updateProduct} className='appButton'>Update Product</button>
+        </div>
+    )
 }
 
-export default UpdateProduct
+export default UpdateProduct;
