@@ -11,7 +11,7 @@ function Login() {
     useEffect(()=>{
         const auth=localStorage.getItem('user');
         if(auth){
-            navigate('/');
+            navigate('/productlist');
         }
 
     })
@@ -22,7 +22,7 @@ function Login() {
             console.log(res.data)
             if(res.data.name){
                 localStorage.setItem('user',JSON.stringify(res.data));
-                navigate('/');
+                navigate('/productlist');
 
             }else{
                 alert("Pls enter vaild email")

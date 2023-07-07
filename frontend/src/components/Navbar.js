@@ -23,7 +23,7 @@ function Navbar() {
 
       />
       {auth? <ul className='nav-ul'>
-            <li><Link to="/">Product</Link></li>
+            <li><Link to="/productlist">Product</Link></li>
             <li><Link to="/add">Add Product</Link></li>
             <li><Link to="/update/:id">Update Product</Link></li>           
            <li><Link to="/profile">Profile</Link></li>
@@ -33,7 +33,7 @@ function Navbar() {
            :
            <ul className='nav-ul right-ul'>
             <li><Link to="/signup">SignUp</Link></li>
-            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/">Login</Link></li>
            </ul>
 }
     </div>

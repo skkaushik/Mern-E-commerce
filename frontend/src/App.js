@@ -18,14 +18,14 @@ function App() {
       <Navbar/>
       <Routes>
       <Route  element={<PrivateComponent/>}>
-        <Route path='/' element={<ProductList/>}/>
+        <Route path='/productlist' element={<ProductList/>}/>
         <Route path='/add' element={<AddProduct/>}/>
         <Route path='/update/:id' element={<UpdateProduct/>}/> 
          <Route path='/profile' element={<Profile/>}/>
         </Route>
 
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/' element={<Login/>}/>
 
       </Routes>
       
