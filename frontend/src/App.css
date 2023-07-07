@@ -1,4 +1,4 @@
-.register ,.add-product{
+.register ,.add-product,.update-product{
   margin-left: 30%;
 }
 .login{
@@ -46,7 +46,7 @@
 
 }
 
-.signup-btn,.login-btn,.add-btn{
+.signup-btn,.login-btn,.add-btn,.up-btn{
   margin: 25px;
   padding: 10px;
   width: 150px;

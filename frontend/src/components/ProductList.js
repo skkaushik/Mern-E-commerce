@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
     const[products,setProducts]=useState([]);
@@ -54,7 +55,10 @@ function ProductList() {
                 <td>{data.category}</td>
                 <td>{data.company}</td>
                 <td>{data.price}</td>
-                <td><button onClick={()=>deleteProduct(data._id)}>Delete</button></td>
+                <td>
+                    <button onClick={()=>deleteProduct(data._id)}>Delete</button>
+                    <Link to={'/update/'+data._id}>Update</Link>
+                </td>
 
                
             </tr>

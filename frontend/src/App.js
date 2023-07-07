@@ -20,7 +20,7 @@ function App() {
       <Route  element={<PrivateComponent/>}>
         <Route path='/' element={<ProductList/>}/>
         <Route path='/add' element={<AddProduct/>}/>
-        <Route path='/update' element={<UpdateProduct/>}/> 
+        <Route path='/update/:id' element={<UpdateProduct/>}/> 
          <Route path='/profile' element={<Profile/>}/>
         </Route>
 

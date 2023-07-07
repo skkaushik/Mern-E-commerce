@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {Link, useNavigate} from 'react-router-dom';
-import SignUp from './SignUp';
+// import SignUp from './SignUp';
 
 
 function Navbar() {
@@ -25,7 +25,7 @@ function Navbar() {
       {auth? <ul className='nav-ul'>
             <li><Link to="/">Product</Link></li>
             <li><Link to="/add">Add Product</Link></li>
-            <li><Link to="/update">Update Product</Link></li>           
+            <li><Link to="/update/:id">Update Product</Link></li>           
            <li><Link to="/profile">Profile</Link></li>
            
            <li> <Link to="/signup" onClick={logout}>Logout ({JSON.parse(auth).name})</Link></li>
