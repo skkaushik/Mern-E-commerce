@@ -23,9 +23,20 @@ function ProductList() {
     if(result){
         fetchInfo();
     }
-    
-
-  }
+    }
+    const searchHandle = async (event)=>{
+        let key = event.target.value;
+        if(key){
+            let result = await fetch(`http://localhost:5000/search/${key}`);
+            result = await result.json()
+            if(result){
+                setProducts(result)
+            }
+        }else{
+            fetchInfo();
+        }
+        
+    }
 
   
   return (
@@ -33,6 +44,9 @@ function ProductList() {
 
 
 <h3>Product List </h3>
+<input type="" className='search-product-box' placeholder='Search Product'
+            onChange={searchHandle}
+             />
       
       <table className='table'>
                     <tr>
@@ -45,7 +59,9 @@ function ProductList() {
                     
                     </tr>
                 
-        {products.map((data, index) => {
+        {
+            products.length>0?
+        products.map((data, index) => {
           
           return (
             <tr>
@@ -67,7 +83,9 @@ function ProductList() {
               
             
           );
-        })}
+        })
+        :<h3>No Result Found</h3>
+        }
         </table>
       
     
