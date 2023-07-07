@@ -75,6 +75,34 @@
 
 }
 
+/* .product-list{
+  display: inline-block;
+  border: 1px solid skyblue;
+  padding: 5px;
+  width: 150px;
+} */
+.product-list{
+  margin-top: 50px;
+  text-align: center;
+
+}
+table{
+  margin-left: 25%;
+}
+
+table th{
+  /* margin-bottom: 5px; */
+  border: 1px solid skyblue;
+
+}
+td{
+  /* margin: 10px; */
+  border: 1px solid skyblue;
+}
+table{
+  margin-bottom: 20px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

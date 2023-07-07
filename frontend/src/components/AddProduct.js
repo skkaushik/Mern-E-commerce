@@ -22,6 +22,7 @@ function AddProduct() {
         axios.post('http://localhost:5000/add-product',{name,price,category,userId,company})
         .then((res)=>{
             console.log(res.data)
+            alert('Product Added.')
         })
 
     }
